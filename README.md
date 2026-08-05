@@ -10,7 +10,7 @@ GitHub 仓库：[tourism-review-llm-evaluation](https://github.com/yshk9364-ux/t
 ## GitHub项目特点
 
 - 覆盖情感分类、问题类型识别、证据提取和复核判断。
-- 提供 1000 条自建测试评论、Prompt 对比、指标计算和 Bad Case 导出的完整链路。
+- 提供 1000 条不重复的自建测试评论、Prompt 对比、指标计算和 Bad Case 导出的完整链路。
 - 使用 Python + pandas 实现，支持本地运行、GitHub Pages 与 Nginx 静态部署。
 
 ## 项目背景
@@ -129,4 +129,4 @@ python3 -m http.server 8000
 
 ## 数据说明
 
-项目使用 1000 条自建旅游评论测试数据，其中保留 40 条初始案例，并以固定模板扩展 960 条；用于验证数据标注、Prompt 优化和模型评测的完整流程。
+项目使用 1000 条不重复的自建旅游评论测试数据，其中保留 40 条初始案例，并以固定模板扩展 960 条；用于验证数据标注、Prompt 优化和模型评测的完整流程。
