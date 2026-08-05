@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PROJECT_DIR="/var/www/tourism-review-llm-evaluation"
-SITE_NAME="tourism-review-llm-evaluation"
+SITE_NAME="tourism-review-ai"
 
 if [ "${EUID}" -eq 0 ]; then
   echo "请使用普通用户运行此脚本；脚本会在需要时调用 sudo。"
@@ -16,29 +16,26 @@ if [ -z "${REPO_URL}" ]; then
   exit 1
 fi
 
-if ! command -v git >/dev/null 2>&1; then
+if ! command -v git >/dev/null 2>&1 || ! command -v nginx >/dev/null 2>&1 || ! command -v curl >/dev/null 2>&1; then
   sudo apt-get update
-  sudo apt-get install -y git
+  sudo apt-get install -y git nginx curl
 fi
 
-if ! command -v nginx >/dev/null 2>&1; then
-  sudo apt-get update
-  sudo apt-get install -y nginx
-fi
-
-if [ -e "${PROJECT_DIR}/.git" ]; then
-  echo "目录 ${PROJECT_DIR} 已包含 Git 仓库，请改用 deploy/update.sh 更新。"
+if [ -e "${PROJECT_DIR}" ]; then
+  echo "目标目录 ${PROJECT_DIR} 已存在。为避免覆盖现有文件，部署已停止。"
   exit 1
 fi
 
 sudo mkdir -p /var/www
 sudo git clone "${REPO_URL}" "${PROJECT_DIR}"
+sudo chown -R www-data:www-data "${PROJECT_DIR}"
+sudo find "${PROJECT_DIR}" -type d -exec chmod 755 {} \;
+sudo find "${PROJECT_DIR}" -type f -exec chmod 644 {} \;
 sudo cp "${PROJECT_DIR}/deploy/nginx.conf" "/etc/nginx/sites-available/${SITE_NAME}"
 sudo ln -sfn "/etc/nginx/sites-available/${SITE_NAME}" "/etc/nginx/sites-enabled/${SITE_NAME}"
 
-# 此配置使用 default_server。首次部署到新服务器时移除 Debian 默认站点，避免默认站点冲突。
-sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t
+sudo systemctl enable nginx
 sudo systemctl reload nginx
 
 SERVER_IP="$(hostname -I | awk '{print $1}')"
