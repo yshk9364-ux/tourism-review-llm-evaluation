@@ -4,7 +4,7 @@
 
 | 文件或文件夹 | 作用 |
 | --- | --- |
-| `data/raw_reviews.csv` | 1000 条待处理的自建测试评论，只有编号和原文。 |
+| `data/raw_reviews.csv` | 1000 条不重复的待处理自建测试评论，只有编号和原文。 |
 | `data/gold_dataset.csv` | 项目基准标签集，包含情感、类型、证据和是否复核。 |
 | `data/model_outputs_v1.csv` | 按基础 Prompt 生成的结构化输出。 |
 | `data/model_outputs_v2.csv` | 按增强 Prompt 生成的结构化输出。 |
