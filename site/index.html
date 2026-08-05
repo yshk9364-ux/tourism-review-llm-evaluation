@@ -106,7 +106,16 @@
       <div class="case-heading reveal"><p class="kicker">06 · INTERACTIVE REVIEW</p><h2 id="casesTitle">从平均分数<br>回到一条评论</h2><p>选择案例，查看基准标签与两版 Prompt 输出的差异。</p></div>
       <div class="case-layout reveal">
         <div class="case-picker" id="casePicker" aria-label="选择评论案例"></div>
-        <article id="caseDetail" class="case-detail" aria-live="polite"></article>
+        <article id="caseDetail" class="case-detail" aria-live="polite">
+          <div class="case-meta"><span>R008</span><b>反讽表达</b></div>
+          <blockquote>“真贴心，排队一个半小时还不让坐，太阳晒得我很开心。”</blockquote>
+          <div class="case-result-list">
+            <div><span>基准标签</span><strong>负面｜排队;服务｜需复核：是</strong><p>本次对比使用的参考结果</p></div>
+            <div><span>Prompt V1</span><strong>正面｜排队｜需复核：否</strong><p>错误类型：情感误判、问题漏标、复核判断错误</p></div>
+            <div class="v2-result"><span>Prompt V2</span><strong>负面｜排队;服务｜需复核：是</strong><p>规则增强后的结构化结果</p></div>
+          </div>
+          <p class="case-note"><b>优化说明</b>V1 按“真贴心”和“很开心”的字面意思判断；V2 加入反讽规则后，结合排队与暴晒事实识别实际不满。</p>
+        </article>
       </div>
     </section>
 

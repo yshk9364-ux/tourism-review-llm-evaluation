@@ -11,63 +11,69 @@ const detail = document.querySelector('#caseDetail');
 
 function renderCase(index) {
   const item = cases[index];
+  if (!item || !picker || !detail) return;
+
   picker.querySelectorAll('button').forEach((button, buttonIndex) => {
     button.classList.toggle('active', buttonIndex === index);
     button.setAttribute('aria-pressed', String(buttonIndex === index));
   });
-  detail.classList.remove('is-visible');
-  window.setTimeout(() => {
-    detail.innerHTML = `
-      <div class="case-meta"><span>${item.id}</span><b>${item.label}</b></div>
-      <blockquote>“${item.review}”</blockquote>
-      <div class="case-result-list">
-        <div><span>基准标签</span><strong>${item.gold}</strong><p>本次对比使用的参考结果</p></div>
-        <div><span>Prompt V1</span><strong>${item.v1}</strong><p>错误类型：${item.error}</p></div>
-        <div class="v2-result"><span>Prompt V2</span><strong>${item.v2}</strong><p>规则增强后的结构化结果</p></div>
-      </div>
-      <p class="case-note"><b>优化说明</b>${item.note}</p>`;
-    detail.classList.add('is-visible');
-  }, 120);
+
+  detail.innerHTML = `
+    <div class="case-meta"><span>${item.id}</span><b>${item.label}</b></div>
+    <blockquote>“${item.review}”</blockquote>
+    <div class="case-result-list">
+      <div><span>基准标签</span><strong>${item.gold}</strong><p>本次对比使用的参考结果</p></div>
+      <div><span>Prompt V1</span><strong>${item.v1}</strong><p>错误类型：${item.error}</p></div>
+      <div class="v2-result"><span>Prompt V2</span><strong>${item.v2}</strong><p>规则增强后的结构化结果</p></div>
+    </div>
+    <p class="case-note"><b>优化说明</b>${item.note}</p>`;
 }
 
-cases.forEach((item, index) => {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span><b>${item.label}</b><em>${item.id}</em>`;
-  button.addEventListener('click', () => renderCase(index));
-  picker.appendChild(button);
-});
-renderCase(0);
+if (picker && detail) {
+  cases.forEach((item, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span><b>${item.label}</b><em>${item.id}</em>`;
+    button.addEventListener('click', () => renderCase(index));
+    picker.appendChild(button);
+  });
+  renderCase(0);
+}
 
 const header = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 
-function updateHeader() {
-  header.classList.toggle('scrolled', window.scrollY > 24);
+if (header) {
+  const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 24);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
 }
-updateHeader();
-window.addEventListener('scroll', updateHeader, { passive: true });
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  document.body.classList.toggle('menu-open', isOpen);
-});
-
-nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
-  document.body.classList.remove('menu-open');
-}));
-
-const revealItems = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('shown');
-      revealObserver.unobserve(entry.target);
-    }
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('menu-open', isOpen);
   });
-}, { threshold: 0.12 });
-revealItems.forEach((item) => revealObserver.observe(item));
+
+  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }));
+}
+
+if ('IntersectionObserver' in window) {
+  const revealItems = document.querySelectorAll('.reveal');
+  document.documentElement.classList.add('reveal-ready');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('shown');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
