@@ -3,7 +3,6 @@
 set -euo pipefail
 
 PROJECT_DIR="/var/www/tourism-review-llm-evaluation"
-SITE_NAME="tourism-review-ai"
 
 if [ "${EUID}" -ne 0 ]; then
   exec sudo "$0" "$@"
