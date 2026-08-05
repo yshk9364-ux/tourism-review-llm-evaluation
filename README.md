@@ -10,8 +10,8 @@ GitHub 仓库：[tourism-review-llm-evaluation](https://github.com/yshk9364-ux/t
 ## GitHub项目特点
 
 - 覆盖情感分类、问题类型识别、证据提取和复核判断。
-- 提供数据检查、Prompt 对比、指标计算和 Bad Case 导出的完整链路。
-- 使用 Python + pandas 实现，支持本地运行和 Nginx 静态部署。
+- 提供 1000 条自建测试评论、Prompt 对比、指标计算和 Bad Case 导出的完整链路。
+- 使用 Python + pandas 实现，支持本地运行、GitHub Pages 与 Nginx 静态部署。
 
 ## 项目背景
 
@@ -50,14 +50,14 @@ GitHub 仓库：[tourism-review-llm-evaluation](https://github.com/yshk9364-ux/t
 
 | 指标 | V1 | V2 |
 | --- | ---: | ---: |
-| 情感分类准确率 | 67.5% | 100.0% |
-| 问题类型完全匹配率 | 40.0% | 95.0% |
-| 问题类型标签级 Precision | 97.5% | 100.0% |
-| 问题类型标签级 Recall | 60.9% | 96.9% |
-| 问题类型标签级 F1 | 75.0% | 98.4% |
-| 证据可定位率 | 100.0% | 100.0% |
+| 情感分类准确率 | 86.7% | 99.7% |
+| 问题类型完全匹配率 | 61.6% | 99.8% |
+| 问题类型标签级 Precision | 95.9% | 100.0% |
+| 问题类型标签级 Recall | 69.3% | 99.9% |
+| 问题类型标签级 F1 | 80.5% | 99.9% |
+| 证据可定位率 | 92.7% | 99.6% |
 | 输出完整率 | 100.0% | 100.0% |
-| need_review 准确率 | 72.5% | 100.0% |
+| need_review 准确率 | 82.9% | 99.7% |
 
 ## Bad Case分析
 
@@ -86,7 +86,7 @@ tourism-review-llm-evaluation/
 ├── data/          # 评论数据、基准标签集、两版模型输出
 ├── guidelines/    # 标签规范与质检清单
 ├── prompts/       # Prompt V1 与 V2
-├── scripts/       # 数据检查与自动评测脚本
+├── scripts/       # 数据生成、数据检查与自动评测脚本
 ├── evaluation/    # 指标、Bad Case 与评测报告
 ├── docs/          # 项目说明与求职材料
 ├── site/          # 可部署的项目展示网站
@@ -99,6 +99,7 @@ tourism-review-llm-evaluation/
 
 ```bash
 python3 -m pip install -r requirements.txt
+python3 scripts/generate_demo_data.py
 python3 scripts/validate_data.py
 python3 scripts/evaluate.py
 ```
@@ -128,4 +129,4 @@ python3 -m http.server 8000
 
 ## 数据说明
 
-项目使用40条自建旅游评论测试数据，用于验证数据标注、Prompt优化和模型评测的完整流程。
+项目使用 1000 条自建旅游评论测试数据，其中保留 40 条初始案例，并以固定模板扩展 960 条；用于验证数据标注、Prompt 优化和模型评测的完整流程。
