@@ -79,7 +79,8 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print("数据检查通过：4 个 CSV 文件字段完整，ID 无重复，标签合规，模型输出覆盖 40 条评论。")
+    sample_size = len(raw) if raw is not None else 0
+    print(f"数据检查通过：4 个 CSV 文件字段完整，ID 无重复，标签合规，模型输出覆盖 {sample_size} 条评论。")
     return 0
 
 
