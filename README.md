@@ -4,7 +4,7 @@
 
 ## 在线演示入口
 
-**在线演示：** [http://43.136.59.87](http://43.136.59.87)
+**在线演示：** [https://ai.4399yskp.online](https://ai.4399yskp.online)
 GitHub 仓库：[tourism-review-llm-evaluation](https://github.com/yshk9364-ux/tourism-review-llm-evaluation)
 
 ## GitHub项目特点
