@@ -20,7 +20,7 @@ git -c safe.directory="${PROJECT_DIR}" pull --ff-only origin main
 chown -R www-data:www-data "${PROJECT_DIR}"
 find "${PROJECT_DIR}" -type d -exec chmod 755 {} \;
 find "${PROJECT_DIR}" -type f -exec chmod 644 {} \;
-cp deploy/nginx.conf "/etc/nginx/sites-available/${SITE_NAME}"
+# HTTPS 配置由 Certbot 维护，更新静态文件时不覆盖现有虚拟主机配置。
 nginx -t
 systemctl reload nginx
 echo "网站文件已更新并重载 Nginx。"
