@@ -54,7 +54,7 @@
         <h2 id="workflowTitle">从评论数据<br>到评测报告</h2>
         <p class="lead">以规则建立可复查的输入，再通过统一脚本比较两版 Prompt 输出，最后回到具体样本理解指标变化。</p>
         <ol class="workflow-list">
-          <li><b>01</b><span><strong>数据构建</strong>40条模拟旅游评论覆盖明确与模糊表达。</span></li>
+          <li><b>01</b><span><strong>数据构建</strong>1000条自建旅游评论覆盖明确与模糊表达。</span></li>
           <li><b>02</b><span><strong>标签体系</strong>定义情感、问题类型、证据与复核规则。</span></li>
           <li><b>03</b><span><strong>Prompt设计</strong>从基础指令迭代到边界规则明确的版本。</span></li>
           <li><b>04</b><span><strong>模型输出</strong>统一为可读取、可比对的结构化字段。</span></li>
@@ -77,8 +77,8 @@
     </section>
 
     <section class="numbers section section-charcoal" aria-labelledby="numbersTitle">
-      <div class="numbers-inner reveal"><div><p class="kicker light">PROJECT AT A GLANCE</p><h2 id="numbersTitle">一个小而完整的<br>离线评测闭环</h2></div>
-        <div class="number-grid"><div><b>40</b><span>条测试评论</span></div><div><b>3</b><span>类情感标签</span></div><div><b>10</b><span>类问题标签</span></div><div><b>2</b><span>版 Prompt</span></div><div><b>8</b><span>项评测指标</span></div><div><b>30</b><span>条 Bad Case</span></div></div>
+      <div class="numbers-inner reveal"><div><p class="kicker light">PROJECT AT A GLANCE</p><h2 id="numbersTitle">一个可复现的<br>离线评测闭环</h2></div>
+        <div class="number-grid"><div><b>1000</b><span>条测试评论</span></div><div><b>3</b><span>类情感标签</span></div><div><b>10</b><span>类问题标签</span></div><div><b>2</b><span>版 Prompt</span></div><div><b>8</b><span>项评测指标</span></div><div><b>446</b><span>条输出不一致记录</span></div></div>
       </div>
     </section>
 
@@ -94,11 +94,11 @@
       <div class="results-heading reveal"><p class="kicker">05 · EVALUATION RESULTS</p><h2 id="resultsTitle">规则清晰后，<br>错误变得可见</h2><p>以下结果来自当前项目的 `evaluation/metrics.csv`，对比 V1 与 V2 的离线输出。</p></div>
       <div class="result-chart reveal" role="table" aria-label="Prompt V1与V2评测结果对比">
         <div class="result-legend"><span><i class="legend-v1"></i>Prompt V1</span><span><i class="legend-v2"></i>Prompt V2</span></div>
-        <div class="result-row" role="row"><b>情感分类准确率</b><div class="track"><i class="v1" style="--value:67.5%"></i><i class="v2" style="--value:100%"></i></div><span>67.5% <em>→</em> 100.0%</span></div>
-        <div class="result-row" role="row"><b>问题类型完全匹配率</b><div class="track"><i class="v1" style="--value:40%"></i><i class="v2" style="--value:95%"></i></div><span>40.0% <em>→</em> 95.0%</span></div>
-        <div class="result-row" role="row"><b>标签级 F1</b><div class="track"><i class="v1" style="--value:75%"></i><i class="v2" style="--value:98.4%"></i></div><span>75.0% <em>→</em> 98.4%</span></div>
-        <div class="result-row" role="row"><b>证据可定位率</b><div class="track"><i class="v1" style="--value:100%"></i><i class="v2" style="--value:100%"></i></div><span>100.0% <em>→</em> 100.0%</span></div>
-        <div class="result-row" role="row"><b>need_review 准确率</b><div class="track"><i class="v1" style="--value:72.5%"></i><i class="v2" style="--value:100%"></i></div><span>72.5% <em>→</em> 100.0%</span></div>
+        <div class="result-row" role="row"><b>情感分类准确率</b><div class="track"><i class="v1" style="--value:86.7%"></i><i class="v2" style="--value:99.7%"></i></div><span>86.7% <em>→</em> 99.7%</span></div>
+        <div class="result-row" role="row"><b>问题类型完全匹配率</b><div class="track"><i class="v1" style="--value:61.6%"></i><i class="v2" style="--value:99.8%"></i></div><span>61.6% <em>→</em> 99.8%</span></div>
+        <div class="result-row" role="row"><b>标签级 F1</b><div class="track"><i class="v1" style="--value:80.5%"></i><i class="v2" style="--value:99.9%"></i></div><span>80.5% <em>→</em> 99.9%</span></div>
+        <div class="result-row" role="row"><b>证据可定位率</b><div class="track"><i class="v1" style="--value:92.7%"></i><i class="v2" style="--value:99.6%"></i></div><span>92.7% <em>→</em> 99.6%</span></div>
+        <div class="result-row" role="row"><b>need_review 准确率</b><div class="track"><i class="v1" style="--value:82.9%"></i><i class="v2" style="--value:99.7%"></i></div><span>82.9% <em>→</em> 99.7%</span></div>
       </div>
     </section>
 
