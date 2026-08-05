@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="旅游评论大模型数据标注与评测：标签体系、Prompt迭代、自动评测与Bad Case分析。">
+  <title>旅游评论大模型数据标注与评测｜AI Evaluation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="nav-shell">
+      <a class="wordmark" href="#top" aria-label="返回页面顶部">AI EVALUATION</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span><b class="sr-only">打开导航</b></button>
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a href="#about">项目介绍</a><a href="#workflow">项目流程</a><a href="#prompts">Prompt迭代</a><a href="#results">评测结果</a><a href="#cases">案例分析</a>
+        <a class="nav-github" href="https://github.com/yshk9364-ux/tourism-review-llm-evaluation" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <img class="hero-image" src="assets/images/hero-mountain-sunset.jpg" alt="日落下的山谷、湖泊与蜿蜒公路">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="kicker light">AI DATA ANNOTATION · LLM EVALUATION</p>
+        <h1 id="heroTitle">旅游评论大模型<br>数据标注与评测</h1>
+        <p class="hero-subtitle">从标签体系、Prompt迭代到自动评测与Bad Case分析的完整实践</p>
+        <p class="hero-intro">基于旅游评论场景，构建一套完整的AI数据标注和模型评测流程。</p>
+        <a class="text-link light-link" href="#about">向下探索 <span aria-hidden="true">↓</span></a>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="向下查看项目介绍"><span></span><em>SCROLL TO EXPLORE</em></a>
+    </section>
+
+    <section class="editorial section" id="about" aria-labelledby="aboutTitle">
+      <div class="editorial-image portrait reveal"><img src="assets/images/misty-valley-path.jpg" alt="薄雾中的山谷与通向远方的小径" loading="lazy"></div>
+      <div class="editorial-copy reveal">
+        <p class="kicker">01 · PROJECT BACKGROUND</p>
+        <h2 id="aboutTitle">项目背景</h2>
+        <p class="lead">旅游评论包含真实体验线索，却往往以口语、反讽和多主题叙述的方式出现。要让模型输出可以比较，首先需要把自然语言变成结构化、可追溯的数据。</p>
+        <div class="copy-list">
+          <p><b>场景选择</b><span>围绕服务、排队、卫生、景色等高频旅游体验主题设计测试评论。</span></p>
+          <p><b>核心问题</b><span>统一情感、问题类型与原文证据的判断口径，让复杂表达能够进入评测流程。</span></p>
+          <p><b>项目交付</b><span>形成基准标签集、Prompt、校验脚本、指标结果和 Bad Case 报告。</span></p>
+        </div>
+        <a class="outline-button" href="#workflow">查看项目流程 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="editorial section section-sand" id="workflow" aria-labelledby="workflowTitle">
+      <div class="editorial-copy reveal">
+        <p class="kicker">02 · EVALUATION WORKFLOW</p>
+        <h2 id="workflowTitle">从评论数据<br>到评测报告</h2>
+        <p class="lead">以规则建立可复查的输入，再通过统一脚本比较两版 Prompt 输出，最后回到具体样本理解指标变化。</p>
+        <ol class="workflow-list">
+          <li><b>01</b><span><strong>数据构建</strong>40条模拟旅游评论覆盖明确与模糊表达。</span></li>
+          <li><b>02</b><span><strong>标签体系</strong>定义情感、问题类型、证据与复核规则。</span></li>
+          <li><b>03</b><span><strong>Prompt设计</strong>从基础指令迭代到边界规则明确的版本。</span></li>
+          <li><b>04</b><span><strong>模型输出</strong>统一为可读取、可比对的结构化字段。</span></li>
+          <li><b>05</b><span><strong>自动评测</strong>计算准确率、多标签指标与证据可定位率。</span></li>
+          <li><b>06</b><span><strong>Bad Case分析</strong>定位反讽、漏标与混合情感等问题。</span></li>
+        </ol>
+      </div>
+      <div class="editorial-image landscape reveal"><img src="assets/images/lakeside-road.jpg" alt="傍晚湖畔的山路与远处山脉" loading="lazy"></div>
+    </section>
+
+    <section class="gallery-section section" aria-labelledby="galleryTitle">
+      <div class="section-heading reveal"><p class="kicker">03 · CAPABILITY GALLERY</p><h2 id="galleryTitle">把评测流程做成可交付的项目</h2><p>从规则设计到错误复盘，每一步都保留可检查的项目文件。</p></div>
+      <div class="capability-gallery">
+        <article class="gallery-card reveal"><img src="assets/images/misty-valley-path.jpg" alt="山谷小径视觉卡片" loading="lazy"><div><span>01</span><h3>数据标注规范</h3><p>统一情感、标签、证据与复核口径。</p></div></article>
+        <article class="gallery-card reveal"><img src="assets/images/hero-mountain-sunset.jpg" alt="日落山谷视觉卡片" loading="lazy"><div><span>02</span><h3>Prompt V1 与 V2</h3><p>从基础任务到规则增强的迭代。</p></div></article>
+        <article class="gallery-card reveal"><img src="assets/images/lakeside-road.jpg" alt="湖畔公路视觉卡片" loading="lazy"><div><span>03</span><h3>Python 自动评测</h3><p>检查数据完整性并自动汇总结果。</p></div></article>
+        <article class="gallery-card reveal"><img src="assets/images/hero-mountain-sunset.jpg" alt="山谷湖泊视觉卡片" loading="lazy"><div><span>04</span><h3>多标签指标计算</h3><p>用 Precision、Recall 与 F1 查看漏标。</p></div></article>
+        <article class="gallery-card reveal"><img src="assets/images/misty-valley-path.jpg" alt="雾中山谷视觉卡片" loading="lazy"><div><span>05</span><h3>Bad Case 分析</h3><p>回到原评论，定位可优化的规则。</p></div></article>
+      </div>
+    </section>
+
+    <section class="numbers section section-charcoal" aria-labelledby="numbersTitle">
+      <div class="numbers-inner reveal"><div><p class="kicker light">PROJECT AT A GLANCE</p><h2 id="numbersTitle">一个小而完整的<br>离线评测闭环</h2></div>
+        <div class="number-grid"><div><b>40</b><span>条测试评论</span></div><div><b>3</b><span>类情感标签</span></div><div><b>10</b><span>类问题标签</span></div><div><b>2</b><span>版 Prompt</span></div><div><b>8</b><span>项评测指标</span></div><div><b>30</b><span>条 Bad Case</span></div></div>
+      </div>
+    </section>
+
+    <section class="prompt-section section" id="prompts" aria-labelledby="promptsTitle">
+      <div class="section-heading reveal"><p class="kicker">04 · PROMPT ITERATION</p><h2 id="promptsTitle">让规则更接近真实评论</h2></div>
+      <div class="prompt-columns">
+        <article class="prompt-card reveal"><div class="prompt-topline"><span>VERSION 01</span><b>基础版</b></div><h3>Prompt V1</h3><p>建立任务目标与统一字段，作为后续规则优化的对照基础。</p><ul><li>基础任务说明</li><li>简单输出字段</li><li>缺少复杂边界规则</li><li>多标签识别不稳定</li></ul></article>
+        <article class="prompt-card prompt-v2 reveal"><div class="prompt-topline"><span>VERSION 02</span><b>规则增强</b></div><h3>Prompt V2</h3><p>通过更明确的定义、示例与输出约束，提升复杂评论的结构化稳定性。</p><ul><li>明确标签定义</li><li>增加多标签规则</li><li>增加 Few-shot 示例</li><li>增加证据约束与反讽处理</li><li>固定结构化输出</li></ul></article>
+      </div>
+    </section>
+
+    <section class="results section section-sand" id="results" aria-labelledby="resultsTitle">
+      <div class="results-heading reveal"><p class="kicker">05 · EVALUATION RESULTS</p><h2 id="resultsTitle">规则清晰后，<br>错误变得可见</h2><p>以下结果来自当前项目的 `evaluation/metrics.csv`，对比 V1 与 V2 的离线输出。</p></div>
+      <div class="result-chart reveal" role="table" aria-label="Prompt V1与V2评测结果对比">
+        <div class="result-legend"><span><i class="legend-v1"></i>Prompt V1</span><span><i class="legend-v2"></i>Prompt V2</span></div>
+        <div class="result-row" role="row"><b>情感分类准确率</b><div class="track"><i class="v1" style="--value:67.5%"></i><i class="v2" style="--value:100%"></i></div><span>67.5% <em>→</em> 100.0%</span></div>
+        <div class="result-row" role="row"><b>问题类型完全匹配率</b><div class="track"><i class="v1" style="--value:40%"></i><i class="v2" style="--value:95%"></i></div><span>40.0% <em>→</em> 95.0%</span></div>
+        <div class="result-row" role="row"><b>标签级 F1</b><div class="track"><i class="v1" style="--value:75%"></i><i class="v2" style="--value:98.4%"></i></div><span>75.0% <em>→</em> 98.4%</span></div>
+        <div class="result-row" role="row"><b>证据可定位率</b><div class="track"><i class="v1" style="--value:100%"></i><i class="v2" style="--value:100%"></i></div><span>100.0% <em>→</em> 100.0%</span></div>
+        <div class="result-row" role="row"><b>need_review 准确率</b><div class="track"><i class="v1" style="--value:72.5%"></i><i class="v2" style="--value:100%"></i></div><span>72.5% <em>→</em> 100.0%</span></div>
+      </div>
+    </section>
+
+    <section class="case-section section" id="cases" aria-labelledby="casesTitle">
+      <div class="case-heading reveal"><p class="kicker">06 · INTERACTIVE REVIEW</p><h2 id="casesTitle">从平均分数<br>回到一条评论</h2><p>选择案例，查看基准标签与两版 Prompt 输出的差异。</p></div>
+      <div class="case-layout reveal">
+        <div class="case-picker" id="casePicker" aria-label="选择评论案例"></div>
+        <article id="caseDetail" class="case-detail" aria-live="polite">
+          <div class="case-meta"><span>R008</span><b>反讽表达</b></div>
+          <blockquote>“真贴心，排队一个半小时还不让坐，太阳晒得我很开心。”</blockquote>
+          <div class="case-result-list">
+            <div><span>基准标签</span><strong>负面｜排队;服务｜需复核：是</strong><p>本次对比使用的参考结果</p></div>
+            <div><span>Prompt V1</span><strong>正面｜排队｜需复核：否</strong><p>错误类型：情感误判、问题漏标、复核判断错误</p></div>
+            <div class="v2-result"><span>Prompt V2</span><strong>负面｜排队;服务｜需复核：是</strong><p>规则增强后的结构化结果</p></div>
+          </div>
+          <p class="case-note"><b>优化说明</b>V1 按“真贴心”和“很开心”的字面意思判断；V2 加入反讽规则后，结合排队与暴晒事实识别实际不满。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="badcase-section section section-charcoal" aria-labelledby="badcasesTitle">
+      <div class="section-heading light-heading reveal"><p class="kicker light">07 · BAD CASE ANALYSIS</p><h2 id="badcasesTitle">错误不是终点，<br>而是下一版规则的起点</h2></div>
+      <div class="badcase-grid">
+        <article class="badcase-card reveal"><span>01 / IRONY</span><h3>反讽误判</h3><p>“真贴心”表面是赞美，却与漫长排队、暴晒事实相矛盾。V2 增加反讽规则，要求结合完整语境判断。</p><small>仍需复核：口语表达的讽刺强度可能存在分歧。</small></article>
+        <article class="badcase-card reveal"><span>02 / MULTI-LABEL</span><h3>多问题漏标</h3><p>宣传信息不符与设施维修同时出现。V1 只保留显眼主题；V2 要求提取每个独立问题。</p><small>仍需复核：边界标签应持续结合规范检查。</small></article>
+        <article class="badcase-card reveal"><span>03 / MIXED SENTIMENT</span><h3>正负混合判断</h3><p>工作人员主动帮助与设施陈旧并存。V2 保留两类信息，并以整体语义判断为中性。</p><small>仍需复核：复杂体验的情感强弱需要人工抽检。</small></article>
+      </div>
+    </section>
+
+    <section class="delivery section" aria-labelledby="deliveryTitle">
+      <div class="delivery-inner reveal"><p class="kicker">PROJECT DELIVERY</p><h2 id="deliveryTitle">查看完整项目</h2><p>项目包含数据集、标注规范、Prompt、Python评测脚本、指标结果和 Bad Case 报告。</p><div class="delivery-actions"><a class="solid-button" href="https://github.com/yshk9364-ux/tourism-review-llm-evaluation" target="_blank" rel="noreferrer">查看 GitHub <span aria-hidden="true">↗</span></a><a class="outline-button" href="https://ai.4399yskp.online" target="_blank" rel="noreferrer">在线查看项目 <span aria-hidden="true">↗</span></a><a class="back-top" href="#top">返回顶部 ↑</a></div></div>
+    </section>
+  </main>
+
+  <footer><div><b>旅游评论大模型数据标注与评测</b><span>个人AI数据与模型评测作品集</span></div><a href="https://github.com/yshk9364-ux/tourism-review-llm-evaluation" target="_blank" rel="noreferrer">GitHub 仓库入口 ↗</a></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
