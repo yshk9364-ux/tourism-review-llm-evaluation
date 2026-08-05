@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="旅游评论大模型数据标注与评测项目展示页">
+  <title>旅游评论大模型数据标注与评测</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="glow glow-one"></div><div class="glow glow-two"></div>
+  <header class="topbar container">
+    <a class="brand" href="#top"><span>AI</span>旅游评论评测</a>
+    <nav aria-label="页面导航"><a href="#results">评测结果</a><a href="#cases">案例演示</a><a href="#abilities">项目能力</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero container">
+      <p class="eyebrow">AI DATA ANNOTATION · LLM EVALUATION</p>
+      <h1>旅游评论大模型<br><em>数据标注与评测</em></h1>
+      <p class="hero-copy">从标签体系、Prompt迭代到自动评测与Bad Case分析的完整实践</p>
+      <div class="chips"><span>Python</span><span>Pandas</span><span>Prompt Engineering</span><span>数据标注</span><span>模型评测</span><span>Bad Case分析</span></div>
+      <div class="actions"><a class="button primary" href="#results">查看项目成果 ↓</a><a class="button secondary" href="https://github.com/yshk9364-ux/tourism-review-llm-evaluation" target="_blank" rel="noreferrer">查看 GitHub ↗</a></div>
+      <div class="hero-panel"><div><small>PROJECT SCOPE</small><b>旅游评论结构化分析</b></div><div><small>WORKFLOW</small><b>标注 · 评测 · 复盘</b></div><div><small>DELIVERY</small><b>数据 + 脚本 + 报告</b></div></div>
+    </section>
+    <section class="section container">
+      <div class="title"><p class="eyebrow">PROJECT OVERVIEW</p><h2>项目概览</h2></div>
+      <div class="stats"><article><b>40</b><strong>条测试评论</strong><p>覆盖正面、负面、中性与复杂表达。</p></article><article><b>10</b><strong>类问题标签</strong><p>服务、排队、价格、卫生等体验主题。</p></article><article><b>2</b><strong>版 Prompt</strong><p>从基础指令到规则增强的迭代对比。</p></article><article><b>8</b><strong>项评测指标</strong><p>从正确性、完整性到多标签表现。</p></article></div>
+    </section>
+    <section class="section container">
+      <div class="title"><p class="eyebrow">END-TO-END WORKFLOW</p><h2>项目流程</h2></div>
+      <ol class="flow"><li><b>01</b><span>数据构建</span></li><li><b>02</b><span>标签规范</span></li><li><b>03</b><span>Prompt设计</span></li><li><b>04</b><span>模型输出</span></li><li><b>05</b><span>自动评测</span></li><li><b>06</b><span>Bad Case分析</span></li></ol>
+    </section>
+    <section class="section container split">
+      <div class="title"><p class="eyebrow">ANNOTATION SCHEMA</p><h2>标签体系</h2><p>以总体情感与细分问题类型共同描述游客体验，支持一条评论识别多个独立主题。</p></div>
+      <div class="label-board"><div class="sentiments"><span>正面</span><span>中性</span><span>负面</span></div><div class="issues"><span>服务</span><span>排队</span><span>价格</span><span>卫生</span><span>餐饮</span><span>交通</span><span>设施</span><span>景色</span><span>宣传</span><span>其他</span></div></div>
+    </section>
+    <section class="section container">
+      <div class="title"><p class="eyebrow">PROMPT ITERATION</p><h2>Prompt版本对比</h2></div>
+      <div class="prompt-grid"><article><div class="version"><span>VERSION 01</span><b>基础版</b></div><h3>Prompt V1</h3><p>以任务要求和结构化字段为核心，建立可比较的基础输出。</p><ul><li>基础任务描述</li><li>简单输出字段</li><li>边界规则较少</li></ul></article><article class="v2"><div class="version"><span>VERSION 02</span><b>规则增强</b></div><h3>Prompt V2</h3><p>通过规则、示例与格式约束，提高复杂评论的结构化稳定性。</p><ul><li>标签定义与多标签规则</li><li>Few-shot示例</li><li>反讽处理与证据约束</li><li>固定输出格式</li></ul></article></div>
+    </section>
+    <section id="results" class="section container">
+      <div class="title result-title"><div><p class="eyebrow">EVALUATION RESULTS</p><h2>评测结果</h2></div><p>V1 与 V2 在当前基准标签集上的对比结果</p></div>
+      <div class="metrics"><div class="metric head"><span>评测指标</span><span>Prompt V1</span><span>Prompt V2</span></div><div class="metric"><span>情感分类准确率</span><div class="bar"><i style="--score:67.5%"></i><b>67.5%</b></div><div class="bar v2bar"><i style="--score:100%"></i><b>100.0%</b></div></div><div class="metric"><span>问题类型完全匹配率</span><div class="bar"><i style="--score:40%"></i><b>40.0%</b></div><div class="bar v2bar"><i style="--score:95%"></i><b>95.0%</b></div></div><div class="metric"><span>标签级F1</span><div class="bar"><i style="--score:75%"></i><b>75.0%</b></div><div class="bar v2bar"><i style="--score:98.4%"></i><b>98.4%</b></div></div><div class="metric"><span>证据可定位率</span><div class="bar"><i style="--score:100%"></i><b>100.0%</b></div><div class="bar v2bar"><i style="--score:100%"></i><b>100.0%</b></div></div><div class="metric"><span>need_review准确率</span><div class="bar"><i style="--score:72.5%"></i><b>72.5%</b></div><div class="bar v2bar"><i style="--score:100%"></i><b>100.0%</b></div></div></div>
+    </section>
+    <section id="cases" class="section container">
+      <div class="title"><p class="eyebrow">INTERACTIVE REVIEW</p><h2>交互式案例演示</h2><p>选择不同评论，查看基础版与规则增强版的输出差异。</p></div>
+      <div class="case-picker" id="casePicker" aria-label="选择评论案例"></div><article id="caseDetail" class="case-detail" aria-live="polite"></article>
+    </section>
+    <section class="section container">
+      <div class="title"><p class="eyebrow">BAD CASE REVIEW</p><h2>Bad Case分析</h2></div>
+      <div class="badcases"><article><span>01 / 反讽识别</span><h3>字面褒义不等于正面体验</h3><p>V1 将“真贴心”视为肯定；V2 结合排队事实识别实际不满。</p><div><b>优化：</b>增加反讽判断规则与复核标记。</div></article><article><span>02 / 多标签</span><h3>单一标签难以覆盖完整问题</h3><p>宣传信息与设施状态同时出现时，V1 容易只保留宣传标签。</p><div><b>优化：</b>要求输出所有独立主题标签。</div></article><article><span>03 / 混合情感</span><h3>优点与问题需要共同保留</h3><p>景色体验良好但卫生存在问题时，只判正面会遗漏可行动的信息。</p><div><b>优化：</b>保留正负信息并按整体语义判断。</div></article></div>
+    </section>
+    <section id="abilities" class="section container"><div class="title"><p class="eyebrow">CORE CAPABILITIES</p><h2>项目能力</h2></div><div class="abilities"><span>标注规范设计</span><span>多标签数据处理</span><span>Prompt设计与迭代</span><span>Python数据校验</span><span>模型指标计算</span><span>Bad Case分析</span><span>评测报告撰写</span></div></section>
+    <section class="section container"><div class="title"><p class="eyebrow">PROJECT DELIVERY</p><h2>项目文件</h2></div><div class="files"><div class="tree">data/　原始数据与基准标签集<br>guidelines/　标签规范与质检清单<br>prompts/　Prompt V1 / V2<br>scripts/　校验与评测脚本<br>evaluation/　指标、Bad Case、报告<br>site/　静态展示网站<br>deploy/　Nginx部署配置</div><a class="button secondary" href="https://github.com/yshk9364-ux/tourism-review-llm-evaluation" target="_blank" rel="noreferrer">进入 GitHub 仓库 ↗</a></div></section>
+  </main>
+  <footer class="container"><span>个人AI数据标注与模型评测作品集</span><span>© 2026 Tourism Review LLM Evaluation</span></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
