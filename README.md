@@ -4,7 +4,7 @@
 
 ## 在线演示入口
 
-部署后访问：`http://<your-server-ip>/`
+**在线演示：** [http://43.136.59.87](http://43.136.59.87)
 GitHub 仓库：[tourism-review-llm-evaluation](https://github.com/yshk9364-ux/tourism-review-llm-evaluation)
 
 ## GitHub项目特点
