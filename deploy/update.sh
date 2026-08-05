@@ -15,7 +15,7 @@ if [ ! -d "${PROJECT_DIR}/.git" ]; then
 fi
 
 cd "${PROJECT_DIR}"
-git pull --ff-only origin main
+git -c safe.directory="${PROJECT_DIR}" pull --ff-only origin main
 chown -R www-data:www-data "${PROJECT_DIR}"
 find "${PROJECT_DIR}" -type d -exec chmod 755 {} \;
 find "${PROJECT_DIR}" -type f -exec chmod 644 {} \;
